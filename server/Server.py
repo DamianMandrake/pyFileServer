@@ -11,7 +11,7 @@ import utils.utilities
 class Server:
     PORT = 4444
     MAX_ACTIVE_CONNECTIONS = 20
-    HOST = "192.168.1.100"
+    HOST = socket.getfqdn()
 
     def __init__(self, port=None, foldername="~/Documents"):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
