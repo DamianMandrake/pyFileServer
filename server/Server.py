@@ -11,6 +11,7 @@ import utils.utilities
 class Server:
     PORT = 4444
     MAX_ACTIVE_CONNECTIONS = 20
+    HOST = "192.168.1.100"
 
     def __init__(self, port=None, foldername="~/Documents"):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -18,9 +19,9 @@ class Server:
 
         # using default port
         if port is None or port < 0 or port > 65535:
-            self.socket.bind(('localhost', Server.PORT))
+            self.socket.bind((Server.HOST, Server.PORT))
         else:
-            self.socket.bind(('localhost', port))
+            self.socket.bind((Server.HOST, port))
 
         self.socket.listen(Server.MAX_ACTIVE_CONNECTIONS)
 
